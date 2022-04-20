@@ -1,7 +1,8 @@
 module.exports = {
     name: 'clear',
+    aliases: ['purge', 'clean', 'delete'],
     description: 'Clear messages',
-    async execute(message, args) {
+    async execute(client, cmd, message, args) {
         if (message.member.permissions.has(['MANAGE_MESSAGES'])) {
             if (!args[0] || isNaN(args[0]) || args[0] < 1) {
                 message.channel.send('Please specify a valid number of messages to delete.');
